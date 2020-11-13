@@ -1,9 +1,14 @@
 <footer>
     <div class="container">
         <p>
-            ©️️ {{ .Site.Copyright }}
+            © {{ .Site.Copyright }}
             |
-            <span>Last update: {{ now.Format "2006-01-02" }} </span>
+            <span>Last update: {{ now.Format "2006-01-02" }}
+	    {{ if $.GitInfo }}
+	    |
+            Commit: <code>{{ .GitInfo.AbbreviatedHash }}</code>
+	    {{ end }}
+	    </span>
         </p>
     </div>
 </footer>
